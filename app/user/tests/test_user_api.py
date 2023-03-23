@@ -18,8 +18,8 @@ def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
 
-class PublicClassApiTests(TestCase):
-    """Test the public feature of the user API."""
+class PublicUserApiTests(TestCase):
+    """Test the public features of the user API."""
 
     def setUp(self):
         self.client = APIClient()
