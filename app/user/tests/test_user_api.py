@@ -75,7 +75,7 @@ class PublicClassApiTests(TestCase):
         create_user(**user_details)
 
         payload = {
-            'name': user_details['email'],
+            'email': user_details['email'],
             'password': user_details['password'],
         }
         res = self.client.post(TOKEN_URL, payload)
@@ -93,7 +93,7 @@ class PublicClassApiTests(TestCase):
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_create_token_black_password(self):
+    def test_create_token_blank_password(self):
         """Test posting a blank password returns an error."""
         payload = {'email': 'test@example.com', 'password': ''}
         res = self.client.post(TOKEN_URL, payload)
