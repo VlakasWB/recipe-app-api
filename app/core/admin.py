@@ -23,8 +23,10 @@ class UserAdmin(BaseUserAdmin):
                     'is_superuser',
                 )
             }
-        )
+        ),
+        (_('Important dates'), {'fields': ('last_login',)}),
     )
+    readonly_fields = ['last_login']
 
 
 admin.site.register(models.User, UserAdmin)
